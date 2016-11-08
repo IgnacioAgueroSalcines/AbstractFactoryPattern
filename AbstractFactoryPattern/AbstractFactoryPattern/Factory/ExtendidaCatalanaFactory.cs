@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StrategyPattern;
 using VisitorPattern;
+using StrateyPatternConsole.Strategy;
 
 namespace AbstractFactoryPattern.Factory
 {
-    public class VisitanteFactory : VisitanteAbstractFactory
+    public class ExtendidaCatalanaFactory : AbstractFactory
     {
-        public override IVisitor compacto()
+        public override Estrategia creaEstrategia()
         {
-            IVisitor visitante = new ImprimeArbolCompacto();
-            return visitante;
+            Estrategia estrategia = new InternacionalCatalan();
+            return estrategia;
         }
 
-        public override IVisitor extendido()
+        public override IVisitor creaVisitante()
         {
             IVisitor visitante = new ImprimeArbolExtendido();
             return visitante;
