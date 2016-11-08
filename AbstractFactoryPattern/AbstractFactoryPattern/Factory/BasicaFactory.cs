@@ -10,6 +10,13 @@ namespace AbstractFactoryPattern.Factory
 {
     public class BasicaFactory : AbstractFactory
     {
+        protected BasicaFactory instance;
+       
+        protected BasicaFactory()
+        {
+            instance = null;
+        }
+
         public override Estrategia creaEstrategia()
         {
             Estrategia estrategia = new InternacionalGallega();
@@ -20,6 +27,15 @@ namespace AbstractFactoryPattern.Factory
         {
             IVisitor visitante = new ImprimeArbolCompacto();
             return visitante;
+        }
+
+        public override AbstractFactory getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new BasicaFactory();
+            }
+            return instance;
         }
     }
 }

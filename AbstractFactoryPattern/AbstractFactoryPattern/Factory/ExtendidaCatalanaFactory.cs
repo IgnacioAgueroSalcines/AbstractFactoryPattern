@@ -11,6 +11,13 @@ namespace AbstractFactoryPattern.Factory
 {
     public class ExtendidaCatalanaFactory : AbstractFactory
     {
+        protected ExtendidaCatalanaFactory instance;
+
+        protected ExtendidaCatalanaFactory()
+        {
+            instance = null;
+        }
+
         public override Estrategia creaEstrategia()
         {
             Estrategia estrategia = new InternacionalCatalan();
@@ -21,6 +28,15 @@ namespace AbstractFactoryPattern.Factory
         {
             IVisitor visitante = new ImprimeArbolExtendido();
             return visitante;
+        }
+
+        public override AbstractFactory getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new ExtendidaCatalanaFactory();
+            }
+            return instance;
         }
     }
 }

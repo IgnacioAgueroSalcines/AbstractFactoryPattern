@@ -10,6 +10,8 @@ namespace AbstractFactoryPattern.Factory
 {
     public abstract class AbstractFactory
     {
+        public abstract AbstractFactory getInstance() ;
+        
         public abstract Estrategia creaEstrategia();
 
         public abstract IVisitor creaVisitante();
