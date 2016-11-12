@@ -9,15 +9,21 @@ namespace StrateyPatternConsole.Strategy
 {
    public class Personalizada:Estrategia
     {
-        public String reemplazo;
+        public String reemplazo { get; set; }
 
-        public Personalizada(String r)
+        public Personalizada()
         {
-            reemplazo = r;
+            reemplazo = null;
         }
+
         public override String filtro(String s)
         {
-            return s.Replace(s,reemplazo);
+            String res = s;
+            if (reemplazo!=null)
+            {
+                res= s.Replace("ñ", reemplazo);
+            }
+            return res;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Composite;
 using StrategyPattern;
+using StrateyPatternConsole.Strategy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace AbstractFactoryPattern
     {
         static void Main(string[] args)
         {
+            
+
             Componente root = inicializa();
             Console.WriteLine(root.ToString());
             Console.Read();
@@ -19,14 +22,14 @@ namespace AbstractFactoryPattern
 
         public static Componente inicializa()
         {
-            Estrategia est = new InternacionalCatalan();
-
+            Personalizada est = new Personalizada();
+            est.reemplazo = "nn";
 
             Directorio root = new Directorio("Raíz", est);
 
             //creacion de objetos
 
-            Composite.Composite dir1 = new Directorio("Directorio Vacío", est);
+            Composite.Composite dir1 = new Directorio("Directorio Vacío ñ", est);
             Composite.Composite dir2 = new Directorio("Directorio con archivo único", est);
             Composite.Composite dir3 = new Directorio("Directorio con archivo comprimido simple", est);
             Composite.Composite dir4 = new Directorio("Directorio con directorio anidado", est);

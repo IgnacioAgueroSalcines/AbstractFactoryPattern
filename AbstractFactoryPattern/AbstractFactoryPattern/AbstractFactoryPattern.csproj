@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factory\AbstractAbierta.cs" />
     <Compile Include="Factory\AbstractFactory.cs" />
+    <Compile Include="Factory\AbiertaFactory.cs" />
     <Compile Include="Factory\ExtendidaCatalanaFactory.cs" />
     <Compile Include="Factory\ExtendidaGallegaFactory.cs" />
     <Compile Include="Factory\EstandarFactory.cs" />
