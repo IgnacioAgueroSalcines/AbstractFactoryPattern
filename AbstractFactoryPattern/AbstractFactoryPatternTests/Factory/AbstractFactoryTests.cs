@@ -1,28 +1,26 @@
-﻿using Composite;
-using StrategyPattern;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AbstractFactoryPattern.Factory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StrategyPattern;
+using Composite;
 
-namespace AbstractFactoryPattern
+namespace AbstractFactoryPattern.Factory.Tests
 {
-    class Program
+    [TestClass()]
+    public class AbstractFactoryTests
     {
-        static void Main(string[] args)
-        {
-            Componente root = inicializa();
-            Console.WriteLine(root.ToString());
-            Console.Read();
-        }
-
-        public static Componente inicializa()
+        Composite.Composite root;
+        [TestInitialize()]
+        public void startUp()
         {
             Estrategia est = new InternacionalCatalan();
 
-
-            Directorio root = new Directorio("Raíz", est);
+         
+            root = new Directorio("Raíz", est);
 
             //creacion de objetos
 
@@ -31,10 +29,10 @@ namespace AbstractFactoryPattern
             Composite.Composite dir3 = new Directorio("Directorio con archivo comprimido simple", est);
             Composite.Composite dir4 = new Directorio("Directorio con directorio anidado", est);
 
-            Archivo arc1 = new Archivo("foto001", 10, est);
+            Archivo arc1 = new Archivo("foto001",10,est);
             Archivo arc2 = new Archivo("foto002", 10, est);
-            EnlaceDirecto enl1 = new EnlaceDirecto(arc1, est);
-            Comprimido cmp1 = new Comprimido("ccSimple", est);
+            EnlaceDirecto enl1 = new EnlaceDirecto(arc1,est);
+            Comprimido cmp1 = new Comprimido("ccSimple",est);
             Archivo arc4 = new Archivo("foto004", 10, est);
             EnlaceDirecto enl2 = new EnlaceDirecto(cmp1, est);
             EnlaceDirecto enl3 = new EnlaceDirecto(dir1, est);
@@ -79,7 +77,18 @@ namespace AbstractFactoryPattern
             root.addComponente(dir3);
             root.addComponente(dir4);
 
-            return root;
+
+
+
+
         }
+
+        [TestMethod()]
+        public void visualizaExtendidaCatalanaTest()
+        {
+            Assert.Fail();
+        }
+
+        
     }
 }

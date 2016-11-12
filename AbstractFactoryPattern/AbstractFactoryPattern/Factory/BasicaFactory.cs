@@ -10,7 +10,7 @@ namespace AbstractFactoryPattern.Factory
 {
     public class BasicaFactory : AbstractFactory
     {
-        protected BasicaFactory instance;
+        protected AbstractFactory instance;
        
         protected BasicaFactory()
         {

@@ -11,7 +11,7 @@ namespace AbstractFactoryPattern.Factory
 {
     public class ExtendidaCatalanaFactory : AbstractFactory
     {
-        protected ExtendidaCatalanaFactory instance;
+        protected AbstractFactory instance;
 
         protected ExtendidaCatalanaFactory()
         {

@@ -92,10 +92,10 @@ namespace Composite
         /// <returns></returns>
         public  override String ToString()
         {
-            String res = this.nombre + "\n";
+            String res = this.nombre;
             for (int i = 0; i < componentes.Count; i++)
             {
-                res += insertaTabulaciones(componentes[i].orden) +componentes[i].ToString() + "\n";
+                res += "\n" +insertaTabulaciones(componentes[i].orden) +componentes[i].ToString() ;
             }
             return base.strategy.filtro(res);
         }

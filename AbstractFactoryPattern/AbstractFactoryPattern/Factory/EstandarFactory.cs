@@ -11,7 +11,7 @@ namespace AbstractFactoryPattern.Factory
 {
     public class EstandarFactory : AbstractFactory
     {
-        protected EstandarFactory instance;
+        protected AbstractFactory instance;
 
         protected EstandarFactory()
         {

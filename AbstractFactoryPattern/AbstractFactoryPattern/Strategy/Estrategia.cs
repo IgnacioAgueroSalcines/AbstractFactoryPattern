@@ -1,5 +1,4 @@
-﻿using AbstractFactoryPattern.Strategy;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StrategyPattern
 {
-    public abstract class Estrategia:EstrategiaFactory
+    public abstract class Estrategia
     {
         public abstract String filtro(String s);
 
