@@ -1,4 +1,5 @@
 ﻿using Composite;
+using Ninject;
 using StrategyPattern;
 using StrateyPatternConsole.Strategy;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VisitorPattern;
 
 namespace AbstractFactoryPattern
 {
@@ -13,20 +15,32 @@ namespace AbstractFactoryPattern
     {
         static void Main(string[] args)
         {
-            
+            // Creamos un inyector usando una cofiguración determinada
+            IKernel injector = new StandardKernel();
 
-            Componente root = inicializa();
-            Console.WriteLine(root.ToString());
+            IVisitor v = new ImprimeArbolCompacto();
+            IVisitor v2 = new ImprimeArbolExtendido();
+
+            Directorio root = inicializa();
+
+            Console.WriteLine("\nCompacto\n");
+            v.ImprimeDirectorio(root);
+
+            Console.WriteLine("\nExtendido\n");
+            v2.ImprimeDirectorio(root);
+
             Console.Read();
         }
 
-        public static Componente inicializa()
+        public static Directorio inicializa()
         {
+            //estrategia a utilizar
             Personalizada est = new Personalizada();
             est.reemplazo = "nn";
 
             Directorio root = new Directorio("Raíz", est);
 
+            #region creacionObjetos
             //creacion de objetos
 
             Composite.Composite dir1 = new Directorio("Directorio Vacío ñ", est);
@@ -55,6 +69,9 @@ namespace AbstractFactoryPattern
 
             Archivo arc7 = new Archivo("foto007", 10, est);
 
+            #endregion
+
+            #region linkObjetos
             //link de objetos
             cmp3.addComponente(arc7);
 
@@ -81,6 +98,8 @@ namespace AbstractFactoryPattern
             root.addComponente(dir2);
             root.addComponente(dir3);
             root.addComponente(dir4);
+
+            #endregion
 
             return root;
         }

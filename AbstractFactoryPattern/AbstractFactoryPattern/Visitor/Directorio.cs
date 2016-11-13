@@ -44,10 +44,9 @@ namespace Composite
         public override String ToStringExtends()
         {
             String res = "D " + this.nombre;
-            res += "\n";
             for (int i = 0; i < componentes.Count; i++)
             {
-                res += insertaTabulaciones(componentes[i].orden) + componentes[i].ToStringExtends() + "\n";
+                res += "\n"+insertaTabulaciones(componentes[i].orden) + componentes[i].ToStringExtends() ;
             }
             return base.strategy.filtro(res);
         }
