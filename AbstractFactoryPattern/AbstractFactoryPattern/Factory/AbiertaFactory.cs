@@ -14,7 +14,7 @@ namespace AbstractFactoryPattern.Factory
     {
         protected AbstractFactory instance;
 
-        protected AbiertaFactory()
+        public AbiertaFactory()
         {
             instance = null;
         }
@@ -24,18 +24,7 @@ namespace AbstractFactoryPattern.Factory
             return (AbstractFactory)this.MemberwiseClone();
         }
 
-        public override Estrategia creaEstrategia()
-        {
-            Estrategia estrategia = new Personalizada();
-            return estrategia;
-        }
-
-        public override IVisitor creaVisitante()
-        {
-            IVisitor visitante = new ImprimeArbolExtendido();
-            return visitante;
-        }
-
+        
         public override AbstractFactory getInstance()
         {
             if (instance == null)
@@ -43,6 +32,12 @@ namespace AbstractFactoryPattern.Factory
                 instance = new AbiertaFactory();
             }
             return instance;
+        }
+
+        public override void Load()
+        {
+            Bind<Estrategia>().To<Personalizada>();
+            Bind<IVisitor>().To<ImprimeArbolExtendido>();
         }
     }
 }

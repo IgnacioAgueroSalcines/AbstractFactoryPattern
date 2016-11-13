@@ -1,4 +1,5 @@
-﻿using Composite;
+﻿using AbstractFactoryPattern.Factory;
+using Composite;
 using Ninject;
 using StrategyPattern;
 using StrateyPatternConsole.Strategy;
@@ -16,10 +17,13 @@ namespace AbstractFactoryPattern
         static void Main(string[] args)
         {
             // Creamos un inyector usando una cofiguración determinada
-            IKernel injector = new StandardKernel();
+            IKernel injector = new StandardKernel(new BasicaFactory());
 
-            IVisitor v = new ImprimeArbolCompacto();
-            IVisitor v2 = new ImprimeArbolExtendido();
+            IVisitor v = injector.Get<IVisitor>();
+
+            //cambio de inyeccion
+            injector = new StandardKernel(new AbiertaFactory());
+            IVisitor v2 = injector.Get<IVisitor>();
 
             Directorio root = inicializa();
 

@@ -12,23 +12,10 @@ namespace AbstractFactoryPattern.Factory
     {
         protected AbstractFactory instance;
        
-        protected BasicaFactory()
+        public BasicaFactory()
         {
             instance = null;
         }
-
-        public override Estrategia creaEstrategia()
-        {
-            Estrategia estrategia = new InternacionalGallega();
-            return estrategia;
-        }
-
-        public override IVisitor creaVisitante()
-        {
-            IVisitor visitante = new ImprimeArbolCompacto();
-            return visitante;
-        }
-
         public override AbstractFactory getInstance()
         {
             if (instance == null)
@@ -36,6 +23,12 @@ namespace AbstractFactoryPattern.Factory
                 instance = new BasicaFactory();
             }
             return instance;
+        }
+
+        public override void Load()
+        {
+            Bind<Estrategia>().To<InternacionalGallega>();
+            Bind<IVisitor>().To<ImprimeArbolCompacto>();
         }
     }
 }

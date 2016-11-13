@@ -18,18 +18,6 @@ namespace AbstractFactoryPattern.Factory
             instance = null;
         }
 
-        public override Estrategia creaEstrategia()
-        {
-            Estrategia estrategia = new InternacionalGallega();
-            return estrategia;
-        }
-
-        public override IVisitor creaVisitante()
-        {
-            IVisitor visitante = new ImprimeArbolExtendido();
-            return visitante;
-        }
-
         public override AbstractFactory getInstance()
         {
             if (instance == null)
@@ -37,6 +25,12 @@ namespace AbstractFactoryPattern.Factory
                 instance = new ExtendidaGallegaFactory();
             }
             return instance;
+        }
+
+        public override void Load()
+        {
+            Bind<Estrategia>().To<InternacionalGallega>();
+            Bind<IVisitor>().To<ImprimeArbolExtendido>();
         }
     }
 }

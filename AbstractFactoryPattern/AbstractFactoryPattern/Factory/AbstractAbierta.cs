@@ -10,9 +10,6 @@ namespace AbstractFactoryPattern.Factory
 {
     public abstract class AbstractAbierta : AbstractFactory
     {
-        public abstract override Estrategia creaEstrategia();
-
-        public abstract override IVisitor creaVisitante();
 
         public abstract override AbstractFactory getInstance();
 
