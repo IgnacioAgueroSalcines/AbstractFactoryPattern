@@ -12,8 +12,6 @@ namespace AbstractFactoryPattern.Factory
 {
     public class AbiertaFactory :  AbstractAbierta
     {
-        protected AbstractFactory instance;
-
         public AbiertaFactory()
         {
             instance = null;

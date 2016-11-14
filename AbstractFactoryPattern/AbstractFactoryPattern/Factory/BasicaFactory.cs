@@ -9,9 +9,7 @@ using VisitorPattern;
 namespace AbstractFactoryPattern.Factory
 {
     public class BasicaFactory : AbstractFactory
-    {
-        protected AbstractFactory instance;
-       
+    {      
         public BasicaFactory()
         {
             instance = null;

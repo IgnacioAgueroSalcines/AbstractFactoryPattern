@@ -11,6 +11,8 @@ namespace AbstractFactoryPattern.Factory
 {
     public abstract class AbstractFactory:NinjectModule
     {
+        public AbstractFactory instance;
+
         public abstract AbstractFactory getInstance() ;
 
     }
