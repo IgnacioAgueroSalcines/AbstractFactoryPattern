@@ -11,17 +11,12 @@ namespace AbstractFactoryPattern.Factory
     public class BasicaFactory : AbstractFactory
     {
         protected BasicaFactory() { }
-        public override Estrategia creaEstrategia()
+        public override void Load()
         {
-            Estrategia e = new InternacionalGallega();
-            return e;
+            Bind<IVisitor>().To<ImprimeArbolCompacto>();
+            Bind<Estrategia>().To<InternacionalGallega>();
         }
-
-        public override IVisitor creaVisitor()
-        {
-            IVisitor v = new ImprimeArbolCompacto();
-            return v;
-        }
+        
 
         public static AbstractFactory init()
         {

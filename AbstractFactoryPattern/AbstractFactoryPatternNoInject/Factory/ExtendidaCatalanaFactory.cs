@@ -19,16 +19,10 @@ namespace AbstractFactoryPattern.Factory
         {
             return instance = new ExtendidaCatalanaFactory();
         }
-        public override Estrategia creaEstrategia()
+        public override void Load()
         {
-            Estrategia e = new InternacionalCatalan();
-            return e;
-        }
-
-        public override IVisitor creaVisitor()
-        {
-            IVisitor v = new ImprimeArbolExtendido();
-            return v;
+            Bind<IVisitor>().To<ImprimeArbolExtendido>();
+            Bind<Estrategia>().To<InternacionalCatalan>();
         }
     }
 }

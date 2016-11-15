@@ -1,4 +1,5 @@
 ﻿using StrategyPattern;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +9,11 @@ using VisitorPattern;
 
 namespace AbstractFactoryPattern.Factory
 {
-    public abstract class AbstractFactory
+    public abstract class AbstractFactory:Ninject.Modules.NinjectModule
     {
         protected static AbstractFactory instance;
 
         protected AbstractFactory() { }
-
-        public abstract IVisitor creaVisitor();
-
-        public abstract Estrategia creaEstrategia();
 
        
 

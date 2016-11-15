@@ -83,11 +83,7 @@ namespace AbstractFactoryPattern.Factory.Tests
 
         }
 
-        [TestMethod()]
-        public void visualizaExtendidaCatalanaTest()
-        {
-            Assert.Fail();
-        }
+       
 
         
     }

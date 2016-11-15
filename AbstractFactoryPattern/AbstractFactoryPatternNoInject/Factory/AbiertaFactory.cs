@@ -21,26 +21,22 @@ namespace AbstractFactoryPattern.Factory
         public static void setEstrategia(Estrategia e)
         {
             estrategia = e;
+            
         }
 
         
 
-        public override Estrategia creaEstrategia()
-        {
-            return estrategia;
-        }
-
-        public override IVisitor creaVisitor()
-        {
-            IVisitor v = new ImprimeArbolExtendido();
-            return v;
-        }
 
         public static AbstractFactory init()
         {
             return instance = new AbiertaFactory();
         }
 
-
+        public override void Load()
+        {
+            Type tipo = estrategia.GetType();
+            Bind<IVisitor>().To<ImprimeArbolExtendido>();
+            Bind<Estrategia>().To(tipo);
+        }
     }
 }

@@ -20,16 +20,10 @@ namespace AbstractFactoryPattern.Factory
             return instance = new EstandarFactory();
         }
 
-        public override Estrategia creaEstrategia()
+        public override void Load()
         {
-            Estrategia e = new Castellano();
-            return e;
-        }
-
-        public override IVisitor creaVisitor()
-        {
-            IVisitor v = new ImprimeArbolExtendido();
-            return v;
+            Bind<IVisitor>().To<ImprimeArbolExtendido>();
+            Bind<Estrategia>().To<Castellano>();
         }
     }
 }

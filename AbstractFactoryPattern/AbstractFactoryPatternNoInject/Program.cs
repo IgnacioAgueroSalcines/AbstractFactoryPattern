@@ -16,30 +16,29 @@ namespace AbstractFactoryPattern
     {
         static void Main(string[] args)
         {
-            sinInject();
-        }
+            AbiertaFactory.setEstrategia(new Chino());
+            AbstractFactory f = AbiertaFactory.init();
 
-        public static void sinInject()
-        {
+            IKernel inyector = new StandardKernel(f);
+
             Directorio root;
 
-            AbstractFactory v = AbiertaFactory.init();
-            AbiertaFactory.setEstrategia(new Chino());
-            root = inicializa(v.creaEstrategia());
+            
+            Estrategia e = inyector.Get<Estrategia>();
+             root = inicializa(e);
             Console.WriteLine("\nCompacto\n");
-            v.creaVisitor().ImprimeDirectorio(root);
+            IVisitor v = inyector.Get<IVisitor>();
+            v.ImprimeDirectorio(root);
 
-            AbstractFactory v2 = ExtendidaCatalanaFactory.init();
+            f= ExtendidaCatalanaFactory.init();
+            inyector = new StandardKernel(f);
+            e = inyector.Get<Estrategia>();
             Console.WriteLine("\nExtendido\n");
-            root = inicializa(v2.creaEstrategia());
-            v2.creaVisitor().ImprimeDirectorio(root);
+            root = inicializa(e);
+             v = inyector.Get<IVisitor>();
+            v.ImprimeDirectorio(root);
 
             Console.Read();
-        }
-
-        public static void conInject()
-        {
-
         }
 
         public static Directorio inicializa(Estrategia est)
