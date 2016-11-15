@@ -1,6 +1,5 @@
 ﻿using AbstractFactoryPattern.Factory;
 using Composite;
-using Ninject;
 using StrategyPattern;
 using StrateyPatternConsole.Strategy;
 using System;
@@ -16,31 +15,23 @@ namespace AbstractFactoryPattern
     {
         static void Main(string[] args)
         {
-            sinInject();
-        }
-
-        public static void sinInject()
-        {
             Directorio root;
 
             AbstractFactory v = AbiertaFactory.init();
             AbiertaFactory.setEstrategia(new Chino());
             root = inicializa(v.creaEstrategia());
-            Console.WriteLine("\nCompacto\n");
+            Console.WriteLine("\nPrueba 1\n");
             v.creaVisitor().ImprimeDirectorio(root);
 
-            AbstractFactory v2 = ExtendidaCatalanaFactory.init();
-            Console.WriteLine("\nExtendido\n");
+            AbstractFactory v2 = BasicaFactory.init();
+            Console.WriteLine("\nPrueba 2\n");
             root = inicializa(v2.creaEstrategia());
             v2.creaVisitor().ImprimeDirectorio(root);
 
             Console.Read();
         }
 
-        public static void conInject()
-        {
-
-        }
+        
 
         public static Directorio inicializa(Estrategia est)
         {

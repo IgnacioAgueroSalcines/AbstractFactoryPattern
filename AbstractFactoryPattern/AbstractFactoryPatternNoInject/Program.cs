@@ -26,14 +26,14 @@ namespace AbstractFactoryPattern
             
             Estrategia e = inyector.Get<Estrategia>();
              root = inicializa(e);
-            Console.WriteLine("\nCompacto\n");
+            Console.WriteLine("\nPrueba 1\n");
             IVisitor v = inyector.Get<IVisitor>();
             v.ImprimeDirectorio(root);
 
-            f= ExtendidaCatalanaFactory.init();
+            f= BasicaFactory.init();
             inyector = new StandardKernel(f);
             e = inyector.Get<Estrategia>();
-            Console.WriteLine("\nExtendido\n");
+            Console.WriteLine("\nPrueba 2\n");
             root = inicializa(e);
              v = inyector.Get<IVisitor>();
             v.ImprimeDirectorio(root);

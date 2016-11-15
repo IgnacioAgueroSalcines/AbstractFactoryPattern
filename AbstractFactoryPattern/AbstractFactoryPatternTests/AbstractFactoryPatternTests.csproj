@@ -51,8 +51,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Factory\AbstractFactoryTests.cs" />
+    <Compile Include="Composite\CompositeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategy\CastellanoTests.cs" />
+    <Compile Include="Strategy\CatalanTests.cs" />
+    <Compile Include="Strategy\GallegoTests.cs" />
+    <Compile Include="Strategy\InternacionalCatalanTests.cs" />
+    <Compile Include="Strategy\InternacionalGallegaTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AbstractFactoryPattern\AbstractFactoryPattern.csproj">
@@ -60,6 +65,7 @@
       <Name>AbstractFactoryPattern</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
