@@ -47,12 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factory\AbiertaFactory.cs" />
-    <Compile Include="Factory\AbstractFactory.cs" />
-    <Compile Include="Factory\BasicaFactory.cs" />
-    <Compile Include="Factory\EstandarFactory.cs" />
-    <Compile Include="Factory\ExtendidaCatalanaFactory.cs" />
-    <Compile Include="Factory\ExtendidaGallegaFactory.cs" />
+    <Compile Include="Configuracion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strategy\Castellano.cs" />

@@ -1,4 +1,4 @@
-﻿using AbstractFactoryPattern.Factory;
+﻿using AbstractFactoryPatternNoInject;
 using Composite;
 using Ninject;
 using StrategyPattern;
@@ -16,10 +16,11 @@ namespace AbstractFactoryPattern
     {
         static void Main(string[] args)
         {
-            AbiertaFactory.setEstrategia(new Chino());
-            AbstractFactory f = AbiertaFactory.init();
+            IVisitor visitante = new ImprimeArbolCompacto();
+            Estrategia estrategia = new Chino();
+            Configuracion c = new Configuracion(visitante, estrategia);
 
-            IKernel inyector = new StandardKernel(f);
+            IKernel inyector = new StandardKernel(c);
 
             Directorio root;
 
@@ -30,8 +31,12 @@ namespace AbstractFactoryPattern
             IVisitor v = inyector.Get<IVisitor>();
             v.ImprimeDirectorio(root);
 
-            f= BasicaFactory.init();
-            inyector = new StandardKernel(f);
+
+             visitante = new ImprimeArbolExtendido();
+            estrategia = new InternacionalGallega();
+             c = new Configuracion(visitante, estrategia);
+
+            inyector = new StandardKernel(c);
             e = inyector.Get<Estrategia>();
             Console.WriteLine("\nPrueba 2\n");
             root = inicializa(e);
